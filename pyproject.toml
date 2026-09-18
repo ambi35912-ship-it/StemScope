@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stemscope"
+version = "0.4.0"
+description = "Local music separation and practice platform — multi-model separation"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "httpx>=0.27,<1",
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1", "python-multipart>=0.0.18,<1",
+  "scikit-learn>=1.7.2,<1.10", "psutil>=5.9,<8", "demucs==4.0.1", "openunmix==1.3.0", "torch==2.2.2", "torchaudio==2.2.2",
+  "librosa==0.11.0", "scipy>=1.11,<1.16", "matplotlib>=3.8,<3.11",
+  "numpy>=1.24,<2", "soundfile>=0.12,<0.14", "gradio>=5.0,<6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.9,<1"]
+
+[project.scripts]
+stemscope = "stemscope.ui:main"
+stemscope-api = "stemscope.api:main"
+stemscope-benchmark = "stemscope.benchmarking.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

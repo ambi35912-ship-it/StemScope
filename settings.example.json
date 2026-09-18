@@ -1,0 +1,7 @@
+{
+  "output_dir": "outputs",
+  "device": "cpu",
+  "max_bytes": 209715200,
+  "max_seconds": 1200,
+  "pilot_dir": "data/musdb7-pilot"
+}
